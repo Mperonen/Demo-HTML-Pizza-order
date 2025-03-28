@@ -30,6 +30,7 @@ header {
 #header_logo {
     margin: auto;
     margin-bottom: 24px;
+    width: 320px;
 }
 
 
@@ -58,12 +59,6 @@ legend {
     color: #ffff33;
 }
 
-fieldset-inputs {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 input[type="radio"], label {
     flex: 40%;
     color: #ffffff;
@@ -77,31 +72,9 @@ input[type="radio"], label {
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 8px;
     border: 0;
-    gap: 32px;
     padding: 0;
-}
-
-.fieldset-cell:first-child {
-    flex-grow: 0;
-}
-
-.fieldset-cell:last-child {
-    flex-grow: 2;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.pizza-price-visual p {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #ffff33;
-}
-
-#current-pizza-price {
-    margin-left: 8px;
-    width: 80px;
 }
 
 #btn-add-pizza, #btn-clear-pizza {
@@ -111,6 +84,14 @@ input[type="radio"], label {
     padding: 8px 16px;
     border-radius: 3px;
     border: 0;
+}
+
+#current-pizza-price {
+    flex-grow: 2;
+    text-align: left;
+    color: #ffff33;
+    font-weight: bold;
+    width: 80px;
 }
 
 .order-row {

@@ -94,7 +94,7 @@ function update_pizza_price() {
 // Displays the pizza's total price.
 function display_pizza_ui_price(pizza_price) {
     pizza_price = pizza_price.toFixed(2).toString().replace(".", ",");
-    document.querySelector('#current-pizza-price').innerHTML = pizza_price + " €";
+    document.querySelector('#current-pizza-price').innerHTML = "Pizza: " + pizza_price + " €";
 }
 
 
