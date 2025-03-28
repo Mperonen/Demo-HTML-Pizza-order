@@ -217,6 +217,8 @@ function load_from_storage() {
     for (btn of buttons) {
         btn.onclick = remove_pizza_from_orders;
     }
+
+    total_order_price();
 }
 
 window.onload = function() {
