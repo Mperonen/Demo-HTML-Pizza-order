@@ -114,12 +114,14 @@ input[type="radio"], label {
 }
 
 .order-row ul {
+    list-style-type: "- ";
     flex-grow: 2;
+    padding-left: 12px;
 }
 
 .order-row-price {
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #ffff33;
 }
 
