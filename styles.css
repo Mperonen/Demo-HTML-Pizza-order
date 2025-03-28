@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #010101;
+}
+
+#page-container {
+    margin: 24px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#header_logo {
+    margin: auto;
+    margin-bottom: 24px;
+}
+
+
+section {
+    background-color: #222222;
+    border-radius: 3px;
+    overflow: auto;
+    max-width: 640px;
+    margin: auto;
+}
+
+fieldset {
+    margin: 8px;
+    border: 1px solid #666666;
+    border-radius: 3px;
+}
+
+legend {
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    padding-left: 24px;
+    padding-right: 24px;
+    color: #ffff33;
+}
+
+fieldset-inputs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+input[type="radio"], label {
+    flex: 40%;
+    color: #ffffff;
+}
+
+#catalog-sizes label, #catalog-fillings label {
+    margin-left: 4px;
+}
+
+#fieldset-pizza-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 0;
+    gap: 32px;
+    padding: 0;
+}
+
+.fieldset-cell:first-child {
+    flex-grow: 0;
+}
+
+.fieldset-cell:last-child {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.pizza-price-visual p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffff33;
+}
+
+#current-pizza-price {
+    margin-left: 8px;
+    width: 80px;
+}
+
+#btn-add-pizza, #btn-clear-pizza {
+    background-color: #111111;
+    color: #ffff33;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 3px;
+    border: 0;
+}
+
+.order-row {
+    background-color: #111111;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    border-radius: 3px;
+}
+
+.order-row ul, .order-row button {
+    margin: 16px;
+}
+
+.order-row button {
+    width: 48px;
+    height: 48px;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.order-row ul {
+    flex-grow: 2;
+}
+
+.order-row-price {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ffff33;
+}
+
+#total-order-price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffff33;
+    margin-left: 24px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pizza order - by Mikko-Pentti Einari Eronen</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="pizzalaskuri.js"></script>
+    </head>
+    <body>
+        <div id="page-container">
+            <header>
+                <h1>Pizza order</h1>
+                <img id="header_logo" src="header_logo.svg">
+            </header>
+            <main>
+                <section id="order">
+                    <fieldset id="catalog-sizes">
+                        <legend>Size options</legend>
+                    </fieldset>
+
+                    <fieldset id="catalog-fillings">
+                        <legend>Toppings</legend>                   
+                    </fieldset>
+                    
+                    <fieldset id="fieldset-pizza-info">
+                        <div class="fieldset-cell">
+                            <button id="btn-add-pizza">Add to orders</button>
+                            <button id="btn-clear-pizza">Clear pizza</button>
+                        </div>
+
+                        <div class="fieldset-cell pizza-price-visual">
+                            <p>Pizza's price:</p>
+                            <p id="current-pizza-price"></p>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Content of order</legend>
+                        <div id="added-pizzas">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Total order price</legend>
+                        <p id="total-order-price"></p>
+                    </fieldset>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
