@@ -11,7 +11,7 @@
 const catalog_sizes = [[8.0, 'Normal'], [12.0, 'Family'], [15.0, 'Max']];
 
 // CATAOG: for pizza fillings.
-const catalog_fillings = [[0.5, 'Ham'], [0.85, 'Bacon'], [0.5, 'Pineapple'], [0.5, 'Tuna'], [0.4, 'Champignon'], [0.5, 'Olive'], [0.5, 'Extra cheese']];
+const catalog_toppings = [[0.5, 'Ham'], [0.85, 'Bacon'], [0.5, 'Pineapple'], [0.5, 'Tuna'], [0.4, 'Champignon'], [0.5, 'Olive'], [0.5, 'Extra cheese']];
 
 
 // Generates input rows based on a given catalog.
@@ -65,7 +65,7 @@ function calculate_pizza_price() {
 
     let fillings = document.querySelectorAll('input[name="pizza-fillings"]:checked');
     for (let i of fillings) {
-        pizza_price += catalog_fillings[i.value][0];
+        pizza_price += catalog_toppings[i.value][0];
     }
 
     return pizza_price;
@@ -91,10 +91,15 @@ function update_pizza_price() {
     display_pizza_ui_price(ui_price);
 }
 
+
+// Parses a float price value into a formatted string
+function price_string(float_price) {
+    return float_price.toFixed(2).toString().replace(".", ",") + " €";
+}
+
 // Displays the pizza's total price.
 function display_pizza_ui_price(pizza_price) {
-    pizza_price = pizza_price.toFixed(2).toString().replace(".", ",");
-    document.querySelector('#current-pizza-price').innerHTML = "Pizza: " + pizza_price + " €";
+    document.querySelector('#current-pizza-price').innerHTML = "Pizza: " + price_string(pizza_price);
 }
 
 
@@ -122,6 +127,13 @@ function total_order_price() {
     document.querySelector('#total-order-price').innerHTML = total_price + " €";
 }
 
+// Creates a topping list item for added pizza.
+function create_list_item(list_container, catalog, item) {
+    let li_incredient = document.createElement('li');
+    li_incredient.innerHTML = catalog[item.value][1] + " " + catalog[item.value][0] + " €";
+    list_container.appendChild(li_incredient);
+}
+
 
 // Creates a row for added pizza.
 function add_pizza_to_order() {
@@ -140,16 +152,12 @@ function add_pizza_to_order() {
     ul_incredients = document.createElement('ul');
     let sizes = document.querySelectorAll('input[name="pizza-sizes"]:checked');
     for (let i of sizes) {
-        li_incredient = document.createElement('li');
-        li_incredient.innerHTML = catalog_sizes[i.value][1] + " " + catalog_sizes[i.value][0] + " €";
-        ul_incredients.appendChild(li_incredient);
+        create_list_item(ul_incredients, catalog_sizes, i);
     }
 
     let fillings = document.querySelectorAll('input[name="pizza-fillings"]:checked');
     for (let i of fillings) {
-        li_incredient = document.createElement('li');
-        li_incredient.innerHTML = catalog_fillings[i.value][1] + " " + catalog_fillings[i.value][0] + "€";
-        ul_incredients.appendChild(li_incredient);
+        create_list_item(ul_incredients, catalog_toppings, i);
     }
 
     row.appendChild(ul_incredients);
@@ -157,7 +165,7 @@ function add_pizza_to_order() {
     // Pizza's price.
     let ui_pizza_price = document.createElement('p');
     ui_pizza_price.className = "order-row-price";
-    ui_pizza_price.innerHTML = pizza_price + " €";
+    ui_pizza_price.innerHTML = price_string(pizza_price);
     row.appendChild(ui_pizza_price);
 
     // Button for row removal.
@@ -213,7 +221,6 @@ function load_from_storage() {
 
     // Adds remove event to buttons.
     let buttons = container.querySelectorAll("button");
-    console.log(buttons);
     for (btn of buttons) {
         btn.onclick = remove_pizza_from_orders;
     }
@@ -224,7 +231,7 @@ function load_from_storage() {
 window.onload = function() {
 
     create_input_rows(catalog_sizes, document.querySelector('#catalog-sizes'), true, 'pizza-sizes');
-    create_input_rows(catalog_fillings, document.querySelector('#catalog-fillings'), false, 'pizza-fillings');
+    create_input_rows(catalog_toppings, document.querySelector('#catalog-fillings'), false, 'pizza-fillings');
 
     document.querySelector('#order').onclick = update_pizza_price;
     document.querySelector('#btn-add-pizza').onclick = add_pizza_to_order;
