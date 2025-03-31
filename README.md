@@ -1,4 +1,4 @@
-# demo_pizza_order
+# Demonstration: Pizza order front end.
 This is just a demonstration for a pizza order front  end system. uses native HTML5, CSS and Javascript.
 
 Has the following features:
